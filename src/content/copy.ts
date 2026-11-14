@@ -39,6 +39,9 @@ export const copy = {
     counter: (n: number) => `${n}/200`,
     cta: '카드 고르러가기',
     generating: '생각을 카드로 나누는 중…', // [신규]
+    // [신규] PRD 4장·API 명세 8장: 외부 AI 전송 사실을 알린다.
+    // TODO(출시 전): AI 제공자 이름·보관 설정 확인 후 문구 확정, 동의 절차가 필요한지 검토
+    aiNotice: '적은 글은 생각 카드를 만들 때 AI 서비스로 보내져. 정리를 마치거나 그만두면 말랑에서 지워져.',
   },
   pick: {
     guessTitle: ['추측 카드', '를\n골라 봐'] as const,

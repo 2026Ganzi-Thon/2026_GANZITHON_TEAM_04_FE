@@ -81,6 +81,7 @@ export default function Concern() {
         />
         <span className="counter" aria-live="polite">{copy.concern.counter(count)}</span>
       </label>
+      <p className="sub" style={{ fontSize: 12, color: 'var(--muted)', marginTop: 10, textAlign: 'left' }}>{copy.concern.aiNotice}</p>
       <Toast message={toast.message} onDone={toast.clear} />
     </Screen>
   );

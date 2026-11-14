@@ -2,6 +2,8 @@
 
 PRD v2.0 · 기능명세 · API 명세(`/api/v1`) 기준의 React + Vite + TypeScript 웹앱. 백엔드는 이 폴더에 없다.
 
+> 이어서 작업한다면 먼저 [HANDOFF-FRONT.md](HANDOFF-FRONT.md)를 읽는다. 남은 일·결정 대기 항목·피그마와 다르게 한 이유가 있다.
+
 ## 실행
 
 ```bash
