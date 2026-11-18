@@ -12,7 +12,7 @@ type Editing = { mode: 'edit'; card: Card; text: string } | { mode: 'add'; text:
 
 /**
  * 피그마 '추측카드 선택'(230:1970) · '사실카드 선택'(230:2059).
- * 추측 화면에서 고른 카드 = ASSUMPTION, 사실 화면에서 고른 카드 = FACT. 사실 화면에는 추측으로 고른 카드를 숨긴다.
+ * 추측 화면에서 고른 카드 = ASSUMPTION, 사실 화면에서 고른 카드 = FACT. 두 화면 모두 전체 카드를 표시하되, 사실 화면에서 추측 카드는 어둡게 표시하고 선택을 막는다.
  * 카드 추가·수정·삭제(PRD FR-02)는 '카드 고치기'로 들어간다.
  */
 export default function PickCards({ mode }: { mode: 'guess' | 'fact' }) {
@@ -34,7 +34,7 @@ export default function PickCards({ mode }: { mode: 'guess' | 'fact' }) {
   if (redirect) return <Navigate to={redirect} replace />;
 
   const target: CardCategory = mode === 'guess' ? 'ASSUMPTION' : 'FACT';
-  const visible = mode === 'guess' ? cards : cards.filter((c) => s.picks[c.cardId] !== 'ASSUMPTION');
+  const visible = cards;
   const [boldWord, rest] = mode === 'guess' ? copy.pick.guessTitle : copy.pick.factTitle;
 
   function toggle(card: Card) {
@@ -165,7 +165,7 @@ export default function PickCards({ mode }: { mode: 'guess' | 'fact' }) {
                 {c.content}
               </button>
             ) : (
-              <button key={c.cardId} type="button" role="checkbox" aria-checked={s.picks[c.cardId] === target} className="tcard" onClick={() => toggle(c)}>
+              <button key={c.cardId} type="button" role="checkbox" aria-checked={s.picks[c.cardId] === target} className="tcard" disabled={mode === 'fact' && s.picks[c.cardId] === 'ASSUMPTION'} style={mode === 'fact' && s.picks[c.cardId] === 'ASSUMPTION' ? { filter: 'brightness(0.7)', cursor: 'not-allowed' } : undefined} onClick={() => toggle(c)}>
                 {c.content}
               </button>
             ),
