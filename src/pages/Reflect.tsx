@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { api, withUser } from '../api';
 import { redirectFor, Screen, useApiError } from '../components/flow';
 import { Mallangi } from '../components/Mallangi';
+import { GrowthMallangi } from '../components/GrowthMallangi';
 import { ChoiceGroup, PrimaryButton, Toast, useToast } from '../components/ui';
 import { copy } from '../content/copy';
 import { toMoodReduced, type Three } from '../domain/reflect';
@@ -60,7 +61,7 @@ export default function Reflect() {
   return (
     <Screen step={6} back="/s/activity" footer={<PrimaryButton onClick={submit} disabled={!stuck || !moveOn}>{copy.reflect.cta}</PrimaryButton>}>
       <div className="head-row">
-        <Mallangi variant="default" width={91} still />
+        <GrowthMallangi width={91} still />
         <p className="bubble outline" style={{ fontSize: 15 }}>{copy.reflect.bubble}</p>
       </div>
       <p className="q" style={{ marginTop: 36 }}>{copy.reflect.q1}</p>

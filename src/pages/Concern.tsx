@@ -3,6 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { api, ApiError, withUser } from '../api';
 import { redirectFor, Screen, useApiError } from '../components/flow';
 import { Mallangi } from '../components/Mallangi';
+import { GrowthMallangi } from '../components/GrowthMallangi';
 import { PrimaryButton, Spinner, Toast, useToast } from '../components/ui';
 import { copy } from '../content/copy';
 import { countGraphemes, isBlank, MAX_CONCERN_CHARS, sliceGraphemes } from '../domain/text';
@@ -65,7 +66,7 @@ export default function Concern() {
   return (
     <Screen step={2} back="/s/situation" footer={<PrimaryButton onClick={submit} disabled={isBlank(text)}>{copy.concern.cta}</PrimaryButton>}>
       <div className="head-row">
-        <Mallangi variant="default" width={91} still />
+        <GrowthMallangi width={91} still />
         <p className="bubble" style={{ flex: 1 }}>{copy.concern.prompt}</p>
       </div>
       <label className="textarea-wrap">

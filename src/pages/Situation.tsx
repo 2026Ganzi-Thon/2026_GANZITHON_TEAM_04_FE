@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { api, withUser, type SituationType, type Weight } from '../api';
 import { redirectFor, Screen, useApiError } from '../components/flow';
-import { Mallangi } from '../components/Mallangi';
+import { GrowthMallangi } from '../components/GrowthMallangi';
 import { ChoiceGroup, PrimaryButton, Toast, useToast, WeightScale } from '../components/ui';
 import { copy } from '../content/copy';
 import { useSession } from '../store/session';
@@ -38,7 +38,7 @@ export default function Situation() {
   return (
     <Screen step={1} back="/" footer={<PrimaryButton onClick={next} disabled={!situation || !weight} busy={busy}>{copy.situation.cta}</PrimaryButton>}>
       <div className="center" style={{ marginTop: 20 }}>
-        <Mallangi variant="default" width={129} />
+        <GrowthMallangi width={129} />
       </div>
       <p className="q" style={{ margin: '18px 0 36px' }}>{copy.situation.question}</p>
       <ChoiceGroup label="상황" className="grid2" itemClassName="choice tall" options={OPTIONS} value={situation} onChange={setSituation} />

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { redirectFor, Screen, useCards, useSaveClassification } from '../components/flow';
-import { Mallangi } from '../components/Mallangi';
+import { GrowthMallangi } from '../components/GrowthMallangi';
 import { PrimaryButton, Spinner, Toast, useToast } from '../components/ui';
 import { copy } from '../content/copy';
 import { useSession } from '../store/session';
@@ -69,7 +69,10 @@ export default function Sort() {
           </section>
           {current && (
             <div className="ask-row" ref={askRef}>
-              <Mallangi variant="default" width={80} still />
+              <div style={{ position: 'relative', flexShrink: 0 }}>
+                <GrowthMallangi width={80} still />
+                <span aria-hidden="true" style={{ position: 'absolute', top: -10, right: -5, fontSize: 28, fontWeight: 800, lineHeight: 1, color: 'var(--title)', transform: 'rotate(15deg)', pointerEvents: 'none' }}>?</span>
+              </div>
               <div style={{ flex: 1 }}>
                 <p className="q" id="sort-q">{copy.sort.question}</p>
                 <div className="yn" role="group" aria-labelledby="sort-q">

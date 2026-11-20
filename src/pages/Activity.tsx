@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { api, ApiError, withUser, type SwitchActivity } from '../api';
 import { redirectFor, Screen, useApiError } from '../components/flow';
-import { Mallangi } from '../components/Mallangi';
+import { GrowthMallangi } from '../components/GrowthMallangi';
 import { PrimaryButton, Spinner, Toast, useToast } from '../components/ui';
 import { copy } from '../content/copy';
 import { countGraphemes, isBlank, MAX_CONCERN_CHARS, sliceGraphemes } from '../domain/text';
@@ -84,7 +84,7 @@ function ActionStep() {
       }
     >
       <div className="head-row">
-        <Mallangi variant="default" width={91} still />
+        <GrowthMallangi width={91} still />
         <h1 className="title" style={{ textAlign: 'left', margin: 0 }}>{copy.action.title}</h1>
       </div>
       {!actions ? (
@@ -141,7 +141,7 @@ function SwitchStep() {
   return (
     <Screen step={5} back="/s/path" footer={<PrimaryButton onClick={finish} disabled={!picked}>{copy.switch.cta}</PrimaryButton>}>
       <div className="head-row">
-        <Mallangi variant="default" width={91} still />
+        <GrowthMallangi width={91} still />
         <h1 className="title" style={{ textAlign: 'left', margin: 0 }}>{copy.switch.title}</h1>
       </div>
       <p className="sub" style={{ marginBottom: 12 }}>{copy.switch.pick}</p>
@@ -169,7 +169,7 @@ function DeferStep() {
   return (
     <Screen step={5} back="/s/path" footer={<PrimaryButton onClick={finish}>{copy.defer.cta}</PrimaryButton>}>
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
-        <Mallangi variant="default" width={129} />
+        <GrowthMallangi width={129} />
         <h1 className="title" style={{ margin: 0 }}>{copy.defer.title}</h1>
         <p className="sub">{copy.defer.body}</p>
       </div>
